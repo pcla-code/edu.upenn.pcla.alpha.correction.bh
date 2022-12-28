@@ -65,4 +65,4 @@ To read the documentation of the function, execute the following in R:
 
 `?get_alphas`
 
-You can also read the vignette [here](http://htmlpreview.github.io/?https://github.com/pcla-code/edu.upenn.pcla.alpha.correction/blob/develop/vignettes/alpha-correction.html).
+You can also read the vignette [here](http://htmlpreview.github.io/?https://github.com/pcla-code/edu.upenn.pcla.alpha.correction/blob/develop/vignettes/alpha-correction.html){:target="_blank"}.
