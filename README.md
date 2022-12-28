@@ -22,6 +22,12 @@ Install the package using dev tools directly from github.
 
 ## Usage
 
+Import the package:
+
+`library(edu.upenn.pcla.alpha.correction)`
+
+And call the get_alphas function, passing your p_values and, optionally, Q:
+
 `get_alphas(p_values, Q)`
 
 Use this function to calculate corrected values for a list of p-values and a given false discovery rate Q.
@@ -53,3 +59,10 @@ _Output:_
 
 [[3]] [1] 0.07
 
+### Documentation
+
+To read the documentation of the function, execute the following in R:
+
+`?get_alphas`
+
+You can also read the vignette [here](http://htmlpreview.github.io/?https://github.com/pcla-code/edu.upenn.pcla.alpha.correction/blob/develop/vignettes/alpha-correction.html).
