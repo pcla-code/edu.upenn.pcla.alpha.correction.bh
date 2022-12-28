@@ -10,9 +10,9 @@ For a sorted list containing _m_ p-values indexed from  _1_ to _m_, the alpha fo
                           alpha(i) = (p_value(i)/m)Q
 where:
 
-_i_ is the index of the p-value in list _l_ (1 to m),
-_p_value(i)_ is the p_value at index i, and
-Q is the false discovery rate, which is 0.05 by default.
+- _i_ is the index of the p-value in list _l_ (1 to m),
+- _p_value(i)_ is the p_value at index i, and 
+- Q is the false discovery rate, which is 0.05 by default.
 
 ## Installation
 
