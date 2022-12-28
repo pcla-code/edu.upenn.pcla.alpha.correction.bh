@@ -344,18 +344,30 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
 <p>This package provides functions for calculating alpha corrections for
-a list of p-values according to the Benjamini-Hochberg alpha
+a list of p-values according to the <em>Benjamini-Hochberg</em> alpha
 correction.</p>
-<p>For an ordered list l containing m sorted p-values, the alpha for
-each p-value is computed as:</p>
-<pre><code>                          alpha = (i/m)Q</code></pre>
+<p>For a sorted list containing m sorted p-values indexed from 1 to m,
+the alpha for each p-value is computed as:</p>
+<pre><code>                          alpha(i) = (p_value(i)/m)Q</code></pre>
 <p>where:</p>
 <ul>
-<li>i is the order of the p-value in list l (1 to m) and</li>
+<li><em>i</em> is the index of the p-value in list <em>l</em> (1 to
+m),</li>
+<li><em>p_value(i)</em> is the p_value at index i, and</li>
 <li>Q is the false discovery rate, which is 0.05 by default.</li>
 </ul>
-<div id="usage" class="section level3">
-<h3>Usage</h3>
+</div>
+<div id="installation" class="section level2">
+<h2>Installation</h2>
+<p>Install the package using dev tools directly from github.</p>
+<p><code>devtools::install_github(&#39;pcla-code/edu.upenn.pcla.alpha.correction&#39;)</code></p>
+</div>
+<div id="usage" class="section level2">
+<h2>Usage</h2>
+<p>Import the package:</p>
+<p><code>library(edu.upenn.pcla.alpha.correction)</code></p>
+<p>And call the get_alphas function, passing your p_values and,
+optionally, Q:</p>
 <p><code>get_alphas(p_values, Q)</code></p>
 <p>Use this function to calculate corrected values for a list of
 p-values and a given false discovery rate Q.</p>
@@ -378,7 +390,6 @@ p-values your passed to the returned alphas.</p>
 <p>[[1]] [1] 0.02333333</p>
 <p>[[2]] [1] 0.04666667</p>
 <p>[[3]] [1] 0.07</p>
-</div>
 </div>
 </div>
 
