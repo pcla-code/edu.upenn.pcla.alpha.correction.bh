@@ -37,7 +37,6 @@ get_alphas <- function(p_values, Q=0.05){
   alphas=list()
   p_value_indexes <- names(sorted_p_values_map)
   triples <- list()
-  #triples[[1]] <- list('p-value', 'alpha', 'is significant?')
   for(i in 1:size){
     curr_alpha <- (i/size)*Q
     curr_p_value <- p_values[as.integer(p_value_indexes[i])]
