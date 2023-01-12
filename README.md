@@ -20,44 +20,67 @@ Install the package using dev tools directly from github.
 
 `devtools::install_github('pcla-code/edu.upenn.pcla.alpha.correction')`
 
+## Depndencies
+This library uses *knitr* to render tables.
+
 ## Usage
 
 Import the package:
 
 `library(edu.upenn.pcla.alpha.correction)`
 
-And call the get_alphas function, passing your p_values and, optionally, Q:
+`library(knitr)`
+
+And call the get_alphas function, passing your p_values and, optionally,
+Q:
 
 `get_alphas(p_values, Q)`
 
-Use this function to calculate corrected values for a list of p-values and a given false discovery rate Q.
+Use this function to calculate corrected values for a list of p-values
+and a given false discovery rate Q.
 
 If you do not provide Q, a default value of 0.05 will be used.
 
-The function will sort the list of p-values, but you are encouraged to pass a sorted list nonetheless, so you can readily compare the p-values your passed to the returned alphas.
+## Output Options
 
-### Example 1:
-`get_alphas(list(0.01,0.08,0.039))`
+You can customize the output of the function using the following two
+options:
 
-_Output:_
+1.  `output` - valid values are:
+    -   *print* - print the data frame to the console only
 
-[[1]] [1] 0.01666667
+    -   *data_frame* - return the data frame only
 
-[[2]] [1] 0.03333333
+    -   *both* - print the data frame to the console and return it. This
+        is the default behavior.
+2.  `include_is_significant_column` - valid values are:
+    -   *TRUE* - The *is significant?* column is included. This is the
+        default behavior.
+    -   *FALSE* - The *is significant?* column is not included.
 
-[[3]] [1] 0.05
+#### Example 1:
 
+`get_alphas(list(0.08,0.01,0.039))`
 
-### Example 2:
-`get_alphas(list(0.01,0.08,0.039), .07)`
+Output:
 
-_Output:_
+|p-value |alpha |is significant? |
+|:-------|:-----|:---------------|
+|0.08    |0.05  |NO              |
+|0.01    |0.017 |YES             |
+|0.039   |0.033 |NO              |
 
-[[1]] [1] 0.02333333
+#### Example 2:
 
-[[2]] [1] 0.04666667
+`get_alphas(list(0.08,0.01,0.039), .07)`
 
-[[3]] [1] 0.07
+Output:
+
+|p-value |alpha |is significant? |
+|:-------|:-----|:---------------|
+|0.08    |0.07  |NO              |
+|0.01    |0.023 |YES             |
+|0.039   |0.047 |YES             |
 
 ### Documentation
 

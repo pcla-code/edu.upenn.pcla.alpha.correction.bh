@@ -4,13 +4,33 @@
 \alias{get_alphas}
 \title{Calculate Benjamini-Hochberg alphas for a list of p-values.}
 \usage{
-get_alphas(p_values, Q = 0.05)
+get_alphas(
+  p_values,
+  Q = 0.05,
+  output = "both",
+  include_is_significant_column = TRUE
+)
 }
 \arguments{
 \item{p_values}{A list of p-values.}
 
 \item{Q}{the false discovery rate. If not provided, a default value of 0.05
 is used.}
+
+\item{output}{An option to control the function's output. Valid values are:
+\itemize{
+\item print - print the data frame to the console only.
+\item data_frame - return the data_frame only.
+\item both - print the data frame to the console and return it.
+The default is 'both' so if you do not provide this option the data frame
+will be printed to the console and returned.
+}}
+
+\item{include_is_significant_column}{This Boolean option will control if the
+is significant? column is included in the printed or returned data frame.
+If TRUE, it will be included. If FALSE, it will be omitted. The default is
+TRUE so if you do not provide this option the is significant? column will
+be included.}
 }
 \value{
 A list of alpha values or an error message if the provided p-values
@@ -24,8 +44,4 @@ alpha=(i/m)Q, where:
 i = the individual p-value's rank in the list of p-values,
 m = the total number of tests, and
 Q = the false discovery rate.
-The function does not expect the p-values to be sorted but it will return
-alpha values for the sorted p-values
-so you are strongly encouraged to sort the p-values before passing them to
-this function - this will make the returned alpha values more readable.
 }
