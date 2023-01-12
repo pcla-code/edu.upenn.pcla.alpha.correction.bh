@@ -61,7 +61,7 @@ get_alphas <-
     triples <- list()
     for (i in 1:size) {
       curr_alpha <- (i / size) * Q
-      curr_p_value <- p_values[as.integer(p_value_indexes[i])]
+      curr_p_value <- as.double(p_values[as.integer(p_value_indexes[i])])
       alphas = append(alphas, curr_alpha)
       is_significant <- if (curr_p_value < curr_alpha)
         'YES'
