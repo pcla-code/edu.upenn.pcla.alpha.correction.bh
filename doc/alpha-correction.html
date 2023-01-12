@@ -362,34 +362,104 @@ m),</li>
 <p>Install the package using dev tools directly from github.</p>
 <p><code>devtools::install_github(&#39;pcla-code/edu.upenn.pcla.alpha.correction&#39;)</code></p>
 </div>
+<div id="depndencies" class="section level2">
+<h2>Depndencies</h2>
+<p>This library uses <em>knitr</em> to render tables.</p>
+</div>
 <div id="usage" class="section level2">
 <h2>Usage</h2>
 <p>Import the package:</p>
 <p><code>library(edu.upenn.pcla.alpha.correction)</code></p>
+<p><code>library(knitr)</code></p>
 <p>And call the get_alphas function, passing your p_values and,
 optionally, Q:</p>
 <p><code>get_alphas(p_values, Q)</code></p>
 <p>Use this function to calculate corrected values for a list of
 p-values and a given false discovery rate Q.</p>
 <p>If you do not provide Q, a default value of 0.05 will be used.</p>
-<p>The function will sort the list of p-values, but you are encouraged
-to pass a sorted list nonetheless, so you can readily compare the
-p-values your passed to the returned alphas.</p>
+</div>
+<div id="output-options" class="section level2">
+<h2>Output Options</h2>
+<p>You can customize the output of the function using the following two
+options:</p>
+<ol style="list-style-type: decimal">
+<li><code>output</code> - valid values are:
+<ul>
+<li><p><em>print</em> - print the data frame to the console
+only</p></li>
+<li><p><em>data_frame</em> - return the data frame only</p></li>
+<li><p><em>both</em> - print the data frame to the console and return
+it. This is the default behavior.</p></li>
+</ul></li>
+<li><code>include_is_significant_column</code> - valid values are:
+<ul>
+<li><em>TRUE</em> - The <em>is significant?</em> column is included.
+This is the default behavior.</li>
+<li><em>FALSE</em> - The <em>is significant?</em> column is not
+included.</li>
+</ul></li>
+</ol>
 <div id="example-1" class="section level4">
 <h4>Example 1:</h4>
-<p><code>get_alphas(list(0.01,0.08,0.039))</code></p>
+<p><code>get_alphas(list(0.08,0.01,0.039))</code></p>
 <p>Output:</p>
-<p>[[1]] [1] 0.01666667</p>
-<p>[[2]] [1] 0.03333333</p>
-<p>[[3]] [1] 0.05</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">p-value</th>
+<th align="left">alpha</th>
+<th align="left">is significant?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.08</td>
+<td align="left">0.05</td>
+<td align="left">NO</td>
+</tr>
+<tr class="even">
+<td align="left">0.01</td>
+<td align="left">0.017</td>
+<td align="left">YES</td>
+</tr>
+<tr class="odd">
+<td align="left">0.039</td>
+<td align="left">0.033</td>
+<td align="left">NO</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="example-2" class="section level4">
 <h4>Example 2:</h4>
-<p><code>get_alphas(list(0.01,0.08,0.039), .07)</code></p>
+<p><code>get_alphas(list(0.08,0.01,0.039), .07)</code></p>
 <p>Output:</p>
-<p>[[1]] [1] 0.02333333</p>
-<p>[[2]] [1] 0.04666667</p>
-<p>[[3]] [1] 0.07</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">p-value</th>
+<th align="left">alpha</th>
+<th align="left">is significant?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.08</td>
+<td align="left">0.07</td>
+<td align="left">NO</td>
+</tr>
+<tr class="even">
+<td align="left">0.01</td>
+<td align="left">0.023</td>
+<td align="left">YES</td>
+</tr>
+<tr class="odd">
+<td align="left">0.039</td>
+<td align="left">0.047</td>
+<td align="left">YES</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
