@@ -16,11 +16,11 @@ where:
 
 ## Installation
 
-Install the package using dev tools directly from github.
+Install the package using dev-tools directly from github or from cran.
 
 `devtools::install_github('pcla-code/edu.upenn.pcla.alpha.correction')`
 
-## Depndencies
+## Dependencies
 This library uses *knitr* to render tables.
 
 ## Usage
