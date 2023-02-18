@@ -1,43 +1,43 @@
 library(knitr)
 
 test_that("invalid p-values 1", {
-  expect_error(get_alphas(list()), "Invalid p-values.")
+  expect_error(get_alphas_bh(list()), "Invalid p-values.")
 })
 
 test_that("invalid p-value 1", {
-  expect_error(get_alphas(list(1, 2, "3")), "Invalid p-value: 2")
+  expect_error(get_alphas_bh(list(1, 2, "3")), "Invalid p-value: 2")
 })
 
 test_that("invalid p-value 2", {
-  expect_error(get_alphas(list(1, "3")), "Invalid p-value: 3")
+  expect_error(get_alphas_bh(list(1, "3")), "Invalid p-value: 3")
 })
 
 test_that("invalid p-value 3", {
-  expect_error(get_alphas(list(.1, .2,-0.05)), "Invalid p-value: -0.05")
+  expect_error(get_alphas_bh(list(.1, .2,-0.05)), "Invalid p-value: -0.05")
 })
 
 test_that("invalid Q 1", {
-  expect_error(get_alphas(list(.1, .2), -0.01), "Invalid Q: -0.01")
+  expect_error(get_alphas_bh(list(.1, .2), -0.01), "Invalid Q: -0.01")
 })
 
 test_that("invalid Q 2", {
-  expect_error(get_alphas(list(.1, .2), 1.001), "Invalid Q: 1.001")
+  expect_error(get_alphas_bh(list(.1, .2), 1.001), "Invalid Q: 1.001")
 })
 
 test_that("invalid option for output", {
-  expect_error(get_alphas(list(.1, .2), output = "xyz"),
+  expect_error(get_alphas_bh(list(.1, .2), output = "xyz"),
                "Invalid output requested: xyz")
 })
 
 test_that("invalid option for include_is_significant_column", {
   expect_error(
-    get_alphas(list(.1, .2), include_is_significant_column = "N/A"),
+    get_alphas_bh(list(.1, .2), include_is_significant_column = "N/A"),
     "Invalid option provided for include_is_significant_column: N/A"
   )
 })
 
 test_that("invalid Q 2", {
-  expect_error(get_alphas(list(.1, .2), 1.001), "Invalid Q: 1.001")
+  expect_error(get_alphas_bh(list(.1, .2), 1.001), "Invalid Q: 1.001")
 })
 
 test_that("it should calculate alphas 1", {
@@ -52,7 +52,7 @@ test_that("it should calculate alphas 1", {
 
   # When
   actual_df <-
-    get_alphas(list(0.08, 0.01, 0.039), output = "data_frame")
+    get_alphas_bh(list(0.08, 0.01, 0.039), output = "data_frame")
 
   # Then
   expect_equal(actual_df, expected_df)
@@ -70,7 +70,7 @@ test_that("it should calculate alphas 2", {
 
   # When
   actual_df <-
-    get_alphas(list(0.08, 0.01, 0.039), output = "data_frame", .07)
+    get_alphas_bh(list(0.08, 0.01, 0.039), output = "data_frame", .07)
 
   # Then
   expect_equal(actual_df, expected_df)
@@ -82,7 +82,7 @@ test_that("it should print output to console", {
   # When
 
   # Then
-  expect_output(get_alphas(list(0.08, 0.01, 0.039), output = "print", .07))
+  expect_output(get_alphas_bh(list(0.08, 0.01, 0.039), output = "print", .07))
 })
 
 test_that("it shouldn't print output to console", {
@@ -91,7 +91,7 @@ test_that("it shouldn't print output to console", {
   # When
 
   # Then
-  expect_failure(expect_output(get_alphas(list(0.08, 0.01, 0.039), output = "data_frame", .07)))
+  expect_failure(expect_output(get_alphas_bh(list(0.08, 0.01, 0.039), output = "data_frame", .07)))
 })
 
 test_that("it shouldn't include is significant column", {
@@ -106,7 +106,7 @@ test_that("it shouldn't include is significant column", {
 
   # When
   actual_df <-
-    get_alphas(
+    get_alphas_bh(
       list(0.08, 0.01, 0.039),
       output = "data_frame",
       include_is_significant_column = FALSE,
@@ -132,7 +132,7 @@ test_that("it should print output to console and return dataframe when 'both' op
             # When
             # Then
             expect_output(actual_df <-
-                            get_alphas(list(0.08, 0.01, 0.039), output = "both", .07))
+                            get_alphas_bh(list(0.08, 0.01, 0.039), output = "both", .07))
             expect_equal(actual_df, expected_df)
           })
 
@@ -151,7 +151,7 @@ test_that("it should print output to console and return dataframe when no option
             # When
             # Then
             expect_output(actual_df <-
-                            get_alphas(list(0.08, 0.01, 0.039), .07))
+                            get_alphas_bh(list(0.08, 0.01, 0.039), .07))
             expect_equal(actual_df, expected_df)
           })
 
@@ -170,6 +170,6 @@ test_that("it should print output to console and return dataframe when no option
             # When
             # Then
             expect_output(actual_df <-
-                            get_alphas(list(0.08, 0.01, 0.039)))
+                            get_alphas_bh(list(0.08, 0.01, 0.039)))
             expect_equal(actual_df, expected_df)
           })

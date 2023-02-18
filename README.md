@@ -1,9 +1,12 @@
 # Alpha Correction R Package
 
-### `library(edu.upenn.pcla.alpha.correction)`
+### `library(edu.upenn.pcla.alpha.correction.bh)`
 
 ## Introduction
 This package provides functions for calculating alpha corrections for a list of p-values according to the _Benjamini-Hochberg_ alpha correction.
+
+Reference:
+Benjamini, Y., & Hochberg, Y. (1995). Controlling the false discovery rate: a practical and powerful approach to multiple testing. Journal of the Royal Statistical Society: series B (Methodological), 57(1), 289-300.
 
 For a sorted list containing _m_ p-values indexed from  _1_ to _m_, the alpha for each p-value _p_ is computed as:
 
@@ -18,7 +21,7 @@ where:
 
 Install the package using dev-tools directly from github or from cran.
 
-`devtools::install_github('pcla-code/edu.upenn.pcla.alpha.correction')`
+`devtools::install_github('pcla-code/edu.upenn.pcla.alpha.correction.bh')`
 
 ## Dependencies
 This library uses *knitr* to render tables.
@@ -27,14 +30,14 @@ This library uses *knitr* to render tables.
 
 Import the package:
 
-`library(edu.upenn.pcla.alpha.correction)`
+`library(edu.upenn.pcla.alpha.correction.bh)`
 
 `library(knitr)`
 
-And call the get_alphas function, passing your p_values and, optionally,
+And call the get_alphas_bh function, passing your p_values and, optionally,
 Q:
 
-`get_alphas(p_values, Q)`
+`get_alphas_bh(p_values, Q)`
 
 Use this function to calculate corrected values for a list of p-values
 and a given false discovery rate Q.
@@ -60,7 +63,7 @@ options:
 
 #### Example 1:
 
-`get_alphas(list(0.08,0.01,0.039))`
+`get_alphas_bh(list(0.08,0.01,0.039))`
 
 Output:
 
@@ -72,7 +75,7 @@ Output:
 
 #### Example 2:
 
-`get_alphas(list(0.08,0.01,0.039), .07)`
+`get_alphas_bh(list(0.08,0.01,0.039), .07)`
 
 Output:
 
@@ -86,6 +89,6 @@ Output:
 
 To read the documentation of the function, execute the following in R:
 
-`?get_alphas`
+`?get_alphas_bh`
 
 You can also read the vignette [here](https://htmlpreview.github.io/?https://github.com/pcla-code/edu.upenn.pcla.alpha.correction/blob/develop/doc/alpha-correction.html).

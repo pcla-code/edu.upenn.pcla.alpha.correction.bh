@@ -1,4 +1,4 @@
-Package: edu.upenn.pcla.alpha.correction
+Package: edu.upenn.pcla.alpha.correction.bh
 Title: Benjamini-Hochberg Alpha Correction
 Version: 0.0.1
 Authors@R: 

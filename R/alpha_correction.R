@@ -25,7 +25,7 @@
 #' @return A list of alpha values or an error message if the provided p-values
 #' are not valid.
 #' @export
-get_alphas <-
+get_alphas_bh <-
   function(p_values,
            Q = 0.05,
            output = "both",

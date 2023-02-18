@@ -54,10 +54,10 @@ Import the package:
 
 `library(knitr)`
 
-And call the get_alphas function, passing your p_values and, optionally,
+And call the get_alphas_bh function, passing your p_values and, optionally,
 Q:
 
-`get_alphas(p_values, Q)`
+`get_alphas_bh(p_values, Q)`
 
 Use this function to calculate corrected values for a list of p-values
 and a given false discovery rate Q.
@@ -83,7 +83,7 @@ options:
 
 #### Example 1:
 
-`get_alphas(list(0.08,0.01,0.039))`
+`get_alphas_bh(list(0.08,0.01,0.039))`
 
 Output:
 
@@ -95,7 +95,7 @@ Output:
 
 #### Example 2:
 
-`get_alphas(list(0.08,0.01,0.039), .07)`
+`get_alphas_bh(list(0.08,0.01,0.039), .07)`
 
 Output:
 
