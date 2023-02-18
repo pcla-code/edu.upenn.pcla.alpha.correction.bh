@@ -1,11 +1,10 @@
 Package: edu.upenn.pcla.alpha.correction
 Title: Benjamini-Hochberg Alpha Correction
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person("Michael", "Mogessie", , "mogessie@upenn.edu", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-6769-5941"))
 Description: This package provides an implementation of the Benjamini-Hochberg Alpha Correction.
-License: `use_mit_license()`
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
@@ -17,3 +16,4 @@ Suggests:
     testthat (>= 3.0.0)
 VignetteBuilder: knitr
 Config/testthat/edition: 3
+License: MIT + file LICENSE
