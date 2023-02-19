@@ -1,3 +1,3 @@
-# edu.upenn.pcla.alpha.correction 0.0.0.9000
+# edu.upenn.pcla.alpha.correction.bh 0.0.1
 
 * Added a `NEWS.md` file to track changes to the package.

@@ -24,6 +24,8 @@
 #' be included.
 #' @return A list of alpha values or an error message if the provided p-values
 #' are not valid.
+#' @importFrom stats setNames
+#' @importFrom knitr kable
 #' @export
 get_alphas_bh <-
   function(p_values,
