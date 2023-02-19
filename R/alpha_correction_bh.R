@@ -32,9 +32,7 @@ get_alphas_bh <-
            Q = 0.05,
            output = "both",
            include_is_significant_column = TRUE) {
-    if (is.null(p_values) ||
-        class(p_values) == "NULL" ||
-        class(p_values) == "logical" || length(p_values) == 0) {
+    if (is.null(p_values) || length(p_values) == 0) {
       stop("Invalid p-values.")
     }
     if (Q < 0 || Q > 1) {

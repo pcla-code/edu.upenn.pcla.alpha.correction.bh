@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/reference/test_package.html#special-files
 
 library(testthat)
-library(edu.upenn.pcla.alpha.correction)
+library(edu.upenn.pcla.alpha.correction.bh)
 
-test_check("edu.upenn.pcla.alpha.correction")
+test_check("edu.upenn.pcla.alpha.correction.bh")

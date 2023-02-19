@@ -4,14 +4,13 @@ Version: 0.0.1
 Authors@R: 
     person("Michael", "Mogessie", , "mogessie@upenn.edu", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-6769-5941"))
-Description: This package provides an implementation of the Benjamini-Hochberg Alpha Correction.
+Description: An implementation of the Benjamini-Hochberg Alpha Correction.
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Imports:
   knitr
-Suggests: 
-    knitr,
+Suggests:
     rmarkdown,
     testthat (>= 3.0.0)
 VignetteBuilder: knitr
